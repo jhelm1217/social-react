@@ -49,3 +49,36 @@ export const getToken = ({ auth, username, password }) => {
 }
 
 
+export const createMessage = ({ auth, content }) => {
+    console.log(content)
+    axios({
+        method: 'post',
+        url: `${baseUrl}/create-message/`,
+        headers: {
+            Authorization: `Bearer ${auth.accessToken}`,
+        },
+        data: {
+            'content': content,
+        },
+    })
+    .then(response => {
+        console.log('Create MESSAGE RESPONSE: ', response);
+    })
+    .catch(error => console.log('ERROR: ', error));
+};
+
+
+// Fetch messages for the authenticated user
+export const getMessages = ({ auth }) => {
+    axios({
+        method: 'get',
+        url: `${baseUrl}/get-messages/`,
+        headers: {
+            Authorization: `Bearer ${auth.accessToken}`,
+        },
+    })
+    .then(response => {
+        console.log('GET MESSAGES RESPONSE: ', response);
+    })
+    .catch(error => console.log('ERROR: ', error));
+};

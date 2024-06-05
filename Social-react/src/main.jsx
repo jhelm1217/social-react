@@ -26,9 +26,11 @@ import Header from './Header'
 import Footer from './Footer'
 import Login from './Login'
 import CreateNewUser from './CreateNewUser'
-import MessageRoom from './MessageRoom'
+import MessageRoom from './MessageList'
 // import CreateMessage from './CreateMessage'
 import { AuthContext } from './context'
+import CreateMessage from './CreateMessage'
+import MessageList from './MessageList'
 
 
 function Layout() {
@@ -62,8 +64,12 @@ const router = createBrowserRouter([
         element: <Login />
       },
       {
-        path: '/message',
-        element: <MessageRoom />
+        path: '/create-message',
+        element: <CreateMessage />
+      },
+      {
+        path: '/get-messages',
+        element: <MessageList />
       },
     ]
   }

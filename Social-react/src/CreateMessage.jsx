@@ -1,29 +1,39 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
+import { createMessage } from "./api";
+import { AuthContext } from "./context";
 
 const CreateMessage = () => {
     const [messageContent, setMessageContent] = useState('');
+    const { auth } = useContext( AuthContext)
+
 
     const handleMessageChange = (e) => {
         setMessageContent(e.target.value);
     }
 
-    const handleSubmit = (e) => {
-        e.preventDeafult();
-        //should send messages to backend
-        setMessageContent('');
+    const handleSubmit = (e) => { //this should send messages to backend. 
+        e.preventDefault();
+        createMessage({ auth, content: messageContent })
+            // .then(newMessage => {
+            //     addMessage(newMessage);
+            //     setMessageContent('')
+            // })
+            // .catch(error => {
+            //     console.log('ERROORRRRR: ', error);
+            // })
     }
 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <div>
             <input
             type="text"
             value={messageContent}
             onChange={handleMessageChange}
-            placeholder="What's on your mind right now?"
+            placeholder="What's on your mind?"
             />
-            <button type="submit">Send My Thoughts</button>
-        </form>
+            <button onClick={handleSubmit}>Send Your Thoughts</button>
+        </div>
     )
 }
 
