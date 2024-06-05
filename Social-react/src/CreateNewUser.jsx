@@ -1,8 +1,7 @@
 import React, { useContext, useState } from "react"
 // import { AuthContext } from "./context"
 // import { getToken } from "./api"
-
-// import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { createUser } from './api'
 
 
@@ -12,8 +11,16 @@ const CreateNewUser = () => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
 
+  const navigate = useNavigate()
+
   const submit = () => {
     createUser({ username, password, firstName, lastName })
+      .then(() => {
+      navigate('/login');
+    })
+    .catch(error => {
+      console.log('Errrorrr creating: ', error)
+    })
   }
 
   return (

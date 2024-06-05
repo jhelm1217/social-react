@@ -25,8 +25,8 @@ const UploadImage = () => {
 
     return (
         <div>
-            <h1>Upload Image</h1>
-            <div>Image Title</div>
+            <h4>Upload Image</h4>
+            <div>Image Caption</div>
             <input
                 onChange={e => setTitle(e.target.value)}
                 value= { title }

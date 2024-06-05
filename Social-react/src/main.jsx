@@ -1,13 +1,3 @@
-// import React from 'react'
-// import ReactDOM from 'react-dom/client'
-// import App from './App.jsx'
-// import './index.css'
-
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-// )
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import {
@@ -26,8 +16,6 @@ import Header from './Header'
 import Footer from './Footer'
 import Login from './Login'
 import CreateNewUser from './CreateNewUser'
-import MessageRoom from './MessageList'
-// import CreateMessage from './CreateMessage'
 import { AuthContext } from './context'
 import CreateMessage from './CreateMessage'
 import MessageList from './MessageList'
@@ -64,13 +52,13 @@ const router = createBrowserRouter([
         element: <Login />
       },
       {
-        path: '/create-message',
-        element: <CreateMessage />
-      },
-      {
         path: '/get-messages',
         element: <MessageList />
       },
+      {
+        path: '/create-message',
+        element: <CreateMessage />
+      }
     ]
   }
 ])
