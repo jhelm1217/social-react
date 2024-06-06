@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { AuthContext } from "./context"
-import { createImage } from "./api"
+import { createImage, createMessage } from "./api"
+import './App.css'
 
 
 
@@ -17,6 +18,7 @@ const UploadImage = () => {
         })
             .then (response => {
                 console.log('UPLOAD IMAGE: ', response)
+                createMessage({ auth, content: response.data.title, image: `http://127.0.0.1:8000/${response.data.image}`})
             })
             .catch(error => console.log('ERRRRROR: ', error))
     }
@@ -45,7 +47,6 @@ const UploadImage = () => {
                     Submit
                 </button>
             </div>
-
 
         </div>
     )

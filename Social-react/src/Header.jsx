@@ -1,12 +1,17 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation  } from "react-router-dom"
 
 function Header() {
+
+  const location = useLocation();
+
+  if (location.pathname === '/get-messages') {
+    return null; // Don't render the header on the message-list page
+  }
+
   return (
-    <div style={{ margin: 10 }}>
-      <Link style={{ marginRight: 20 }} to='/'>Home</Link>
-      <Link style={{ marginRight: 20 }} to='create-user/'>New User?</Link>
-      {/* <Link style={{ marginRight: 20 }}to='/login'>Login</Link> */}
-      <Link to='get-messages/'>Messages</Link>
+    <div style={{ margin: 10, display: 'flex', justifyContent: 'flex-end', fontSize: '20px' }}>
+      <Link style={{ marginRight: 20, color: 'white' }} to='/'>Home</Link>
+      <Link style={{ marginRight: 20, color: 'white' }} to='create-user/'>New User?</Link>
     </div>
   )
 }

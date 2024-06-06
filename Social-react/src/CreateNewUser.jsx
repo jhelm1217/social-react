@@ -15,9 +15,11 @@ const CreateNewUser = () => {
 
   const submit = () => {
     createUser({ username, password, firstName, lastName })
-      .then(() => {
+    .then (response => {
+      console.log('errrror: ', response)
       navigate('/login');
-    })
+  })
+     
     .catch(error => {
       console.log('Errrorrr creating: ', error)
     })
@@ -61,6 +63,7 @@ const CreateNewUser = () => {
       <div style={{ marginTop: 20 }}>
         <button onClick={() => submit()}>Submit</button>
       </div>
+      
     </div>
   )
 }

@@ -14,31 +14,22 @@ function Login() {
 
   const submit = () => {
     getToken({ auth, username, password })
-      // .then (Response => {
-      //   setAuth(tokenData);
-      //   navigate('/get-messages')
-      // })
-      // .catch(error => {
-      //   setErrorMessage('Login failed, Try again.')
-      //   console.log('ERRRRRRRR!!!!: ', error)
-      // })
+  
   }
 
-  // const gotToMessages =()=>{
-  //   navigate("/messageList");
-  // }
-
+ 
   const handleClick=() => {
-    submit()
+    submit();
+    navigate('/get-messages')
 
   }
 
 
   return (
-    <div className="p-5">
+    <div className="p-5 container" style={{ textAlign: 'center', color: 'white'}}>
 
       <h1>Login</h1>
-      <p>Welcome, Log in here and let's Par-tay!</p>
+      <p>Heyyy, Log in and let's Par-tay!</p>
       <div>
         <div>Username:</div>
         <input
@@ -57,8 +48,8 @@ function Login() {
       </div>
 
       <div style={{ marginTop: 20 }}>
-        <button onClick={handleClick}>See your Messages!</button>
-        {/* <button onClick={() => gotToNewPage()} className="btn">See your messages!</button> */}
+        <button onClick={handleClick} style={{ color: 'white', backgroundColor: 'teal', borderRadius: '10px'}}>See your Messages!</button>
+   
       </div>
       {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
 

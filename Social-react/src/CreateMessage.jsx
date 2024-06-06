@@ -14,13 +14,6 @@ const CreateMessage = () => {
     const handleSubmit = (e) => { //this should send messages to backend. 
         e.preventDefault();
         createMessage({ auth, content: messageContent })
-            // .then(newMessage => {
-            //     addMessage(newMessage);
-            //     setMessageContent('')
-            // })
-            // .catch(error => {
-            //     console.log('ERROORRRRR: ', error);
-            // })
     }
 
 
@@ -32,7 +25,7 @@ const CreateMessage = () => {
             onChange={handleMessageChange}
             placeholder="What's on your mind?"
             />
-            <button onClick={handleSubmit}>Send Your Thoughts</button>
+            <button onClick={handleSubmit}>Send it!</button>
         </div>
     )
 }

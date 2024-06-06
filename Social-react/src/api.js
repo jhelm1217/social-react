@@ -20,9 +20,9 @@ export const createUser = ({ username, password, firstName, lastName }) => {
 }
 
 
-export const createMessage = ({ auth, content, image }) => {
-    console.log(content)
-    axios({
+export const createMessage = ({ auth, content, image=null }) => {
+    console.log('content and image: ')
+    return axios({
         method: 'post',
         url: `${baseUrl}/create-message/`,
         headers: {
@@ -56,6 +56,7 @@ export const createMessage = ({ auth, content, image }) => {
       }
     })
   }
+
 
 export const deleteMessage = ({ auth, id }) => {
     axios({
@@ -92,7 +93,9 @@ export const editMessage = ({ auth, messageId, content }) => {
     .catch (error => console.log('ERROR Somewhere with editing: ', error))
 }
 
+
 export const fetchUser = ({ auth }) => {
+    console.log('authhhh: ', auth)
     axios({
         method: 'get', 
         url: `${baseUrl}/get-profile/`, 
@@ -103,6 +106,36 @@ export const fetchUser = ({ auth }) => {
         console.log('FETCH USER RESPONSE:', response)
     }).catch(error => console.log('ERROR: ', error))
 }
+
+
+
+export const getImages = ({ auth }) => {
+    return axios({
+        method: 'get',
+        url: `${baseUrl}/get-images`,
+        headers: {
+            Authorization: `Bearer ${auth.accessToken}`
+        }
+    })
+}
+
+
+// Fetch messages for the authenticated user
+export const getMessages = ({ auth }) => {
+    return axios({
+        method: 'get',
+        url: `${baseUrl}/get-messages/`,
+        headers: {
+            Authorization: `Bearer ${auth.accessToken}`,
+        },
+    })
+    .then(response => {
+        console.log('GET MESSAGES RESPONSE: ', response);
+        return response
+    })
+    .catch(error => console.log('ERROR: ', error));
+};
+
 
  
 export const getToken = ({ auth, username, password }) => {
@@ -119,30 +152,3 @@ export const getToken = ({ auth, username, password }) => {
     })
     .catch(error => console.log('ERRORRR: ', error))
 }
-
-
-export const getImages = ({ auth }) => {
-    return axios({
-      method: 'get',
-      url: `${baseUrl}/get-images`,
-      headers: {
-        Authorization: `Bearer ${auth.accessToken}`
-      }
-    })
-  }
-
-
-// Fetch messages for the authenticated user
-export const getMessages = ({ auth }) => {
-    axios({
-        method: 'get',
-        url: `${baseUrl}/get-messages/`,
-        headers: {
-            Authorization: `Bearer ${auth.accessToken}`,
-        },
-    })
-    .then(response => {
-        console.log('GET MESSAGES RESPONSE: ', response);
-    })
-    .catch(error => console.log('ERROR: ', error));
-};

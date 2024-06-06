@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "./context"
 import { getImages } from "./api"
+import './App.css'
 
 
 
