@@ -54,11 +54,11 @@ const MessageList = () => {
                         <br />
                         {message.image && 
                         <img src={message.image} 
-                        style={{ width: '40%'}}/>}
+                        style={{ width: '30%'}}/>}
                         <br /> 
                         <small>{message.created_at}</small> 
                         <br />
-                
+                        
                         <button onClick={() => handleDelete(message.id)} style={{ backgroundColor: 'pink', fontFamily: 'cursive', borderRadius: '10px'}}> Delete </button>
 
                     </div>

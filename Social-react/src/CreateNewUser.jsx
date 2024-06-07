@@ -17,7 +17,6 @@ const CreateNewUser = () => {
     createUser({ username, password, firstName, lastName })
     .then (response => {
       console.log('errrror: ', response)
-      navigate('/login');
   })
      
     .catch(error => {
@@ -25,8 +24,15 @@ const CreateNewUser = () => {
     })
   }
 
+  const handleClick=() => {
+    submit();
+    navigate('/login')
+
+  }
+
   return (
-    <div>
+    <div className="p-5 container" style={{ textAlign: 'center', color: 'white'}}>
+
       <h1>Create New User</h1>
       <div>
         <div>Username:</div>
@@ -61,7 +67,9 @@ const CreateNewUser = () => {
       </div>
 
       <div style={{ marginTop: 20 }}>
-        <button onClick={() => submit()}>Submit</button>
+      <button onClick={handleClick} style={{ color: 'white', backgroundColor: 'teal', borderRadius: '10px'}}>Submit</button>
+
+        {/* <button onClick={() => submit()} style={{ color: 'white', backgroundColor: 'teal', borderRadius: '10px'}}>Submit</button> */}
       </div>
       
     </div>
