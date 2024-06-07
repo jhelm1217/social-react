@@ -25,7 +25,7 @@ const CreateMessage = () => {
             onChange={handleMessageChange}
             placeholder="What's on your mind?"
             />
-            <button onClick={handleSubmit}>Send it!</button>
+            <button onClick={handleSubmit} style={{ color: 'white ', backgroundColor: 'purple', borderRadius: '10px'}}>Send 💜 </button>
         </div>
     )
 }

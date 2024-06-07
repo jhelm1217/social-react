@@ -4,7 +4,6 @@ import CreateMessage from './CreateMessage';
 import './App.css'
 import { deleteMessage, getMessages } from './api';
 import UploadImage from './UploadImage';
-// import { removeToken } from './auth'
 
 const MessageList = () => {
     const [messages, setMessages] = useState([]);
@@ -12,7 +11,7 @@ const MessageList = () => {
     const { auth } = useContext(AuthContext);
 
     const handleLogout = () => {
-        removeToken(auth.accessToken); // Assuming this function removes the token
+        removeToken(auth.accessToken); // remove the user's access and route back to home page. BUT it aint working right now. lol
         setAuth(null);
         navigate('/');
       }
@@ -30,7 +29,7 @@ const MessageList = () => {
 
 
     const handleDelete = (id) => {
-        deleteMessage(id, { auth }) 
+        deleteMessage(id, { auth }) //This is not complete
         .then(() => {
             setMessages(messages.filter(message => message.id != id));
         })

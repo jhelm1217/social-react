@@ -4,7 +4,6 @@ import { createImage, createMessage } from "./api"
 import './App.css'
 
 
-
 const UploadImage = () => {
     const { auth } = useContext(AuthContext)
     const [image, setImage] = useState(undefined)
@@ -31,7 +30,9 @@ const UploadImage = () => {
             <div>Image Caption</div>
             <input
                 onChange={e => setTitle(e.target.value)}
+                
                 value= { title }
+                
 
             />
             <div>
@@ -39,11 +40,12 @@ const UploadImage = () => {
                     accept='/image/*'
                     type='file'
                     onChange={e => setImage(e.target.files[0])}
+                
                 />
             </div>
 
             <div>
-                <button onClick={() => submit ()}> 
+                <button onClick={() => submit ()} style={{ color: 'white ', backgroundColor: 'purple', borderRadius: '10px'}}> 
                     Submit
                 </button>
             </div>
